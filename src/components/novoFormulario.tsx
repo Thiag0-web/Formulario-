@@ -20,7 +20,7 @@ const schema = z.object({
   email: z.email("Formato de E-mail inválido!"),
   telefone: z
     .string()
-    .max(11, "Deve ter 11 Números")
+    .min(11, "Deve ter 11 Números")
     .regex(/^[0-9+\-()\s ]+$/, "Apenas números são permitidas")
     .nonempty("Telefone é obrigatório"),
   termos: z.boolean().refine((val) => val === true, {
